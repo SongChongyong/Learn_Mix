@@ -1,9 +1,2 @@
-Git is a distributed version control system.
-Git is free software distributed under the GPL.
-Git has a mutable index called stage.
-
-first revise
-
-Second revise:Git tracks changes of files.
-
-968578
+这是廖雪峰Git教程的笔记，萌新，纯粹是实验课程提供的命令，而且也没有特意整理，需要什么看什么，等后面有时间整理并深入学习一下。
+同时Mark一下，后面要学一下Markdown了。
