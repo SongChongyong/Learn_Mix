@@ -329,7 +329,7 @@ $ git push -u origin master
 
 ```
 
-### 3.2 从远程仓库获取
+### 3.3 从远程仓库获取
 
 **git clone ----获取远程仓库**
 
@@ -346,6 +346,15 @@ $ git pull origin master
 
 # 假设github远程库的master分支文件有修改,使用git pull origin master可以将本地仓库中的master分支更新到github库master分支状态
 
+```
+
+### 3.4 将本地分支跟踪服务器分支
+
+```
+# git branch --set-upstream-to=origin/远程分支名 本地分支名
+# 跟踪后,需要将本地库push 到远程库,只需要 git push 就行
+
+$ git branch --set-upstream-to=origin/master master
 ```
 
 
