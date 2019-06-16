@@ -1,5 +1,7 @@
 # Git Notes
 
+此文件仅仅是学习廖雪峰Git教程的笔记,详细教程参考廖雪峰官网教程.
+
 [TOC]
 
 
@@ -218,11 +220,11 @@ HEAD is now at e475afc add distributed
 
 ### 2.5 工作区和暂存区
 
-工作区（Working Directory）: 就是你在电脑里能看到的目录
+**工作区（Working Directory）: 就是你在电脑里能看到的目录**
 
-版本库（Repository）: 工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库。
+**版本库（Repository）**: 工作区有一个**隐藏目录.git**，这个不算工作区，而是Git的版本库。
 
-Git的版本库里存了很多东西，其中最重要的就是称为stage（或者叫index）的暂存区，还有Git为我们自动创建的第一个分支master，以及指向master的一个指针叫HEAD。
+Git的版本库里存了很多东西，其中最重要的就是称为**stage（或者叫index）的暂存区**，还有Git为我们自动创建的第一个分支master，以及指向master的一个指针叫HEAD。
 
  
 
@@ -267,7 +269,7 @@ $ git checkout -- readme.txt
 
 ### 2.7 删除文件
 
-git rm <file>  从版本库中删除文件, 删除后需要commit
+`git rm <file>`  从版本库中删除文件, 删除后需要commit
 
 ```
 $ rm test.txt			
