@@ -153,7 +153,7 @@ index 46d49bf..9247db6 100644
 
 ### 2.4 版本回退
 
-用git log命令查看历史记录：
+用**git log**命令查看历史记录：
 
 ```
 $ git log
@@ -214,7 +214,7 @@ HEAD is now at e475afc add distributed
 #也可以用git reset --hard+版本号（版本号只需要前面几位就行）
 ```
 
-**用git reflog查看命令历史**
+**用git reflog查看命令历史**(同时可以顺便查看到版本号,方便版本回退)
 
 ### 2.5 工作区和暂存区
 
