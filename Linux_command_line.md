@@ -1,6 +1,6 @@
 # Linux  命令行
 
-此项目是学习<Linux命令行大全>练习笔记.
+此项目是学习<Linux命令行大全>练习笔记. 仅仅是个人学习记录.
 
 ![Linux命令行大全](./pictures/01_Linux命令行大全.jpg)
 
@@ -100,4 +100,39 @@ less filename查看文本文件,一旦文件运行,按'q'键退出less程序.
 
 
 ## 第十四章 软件包管理
+
+主流软件包系统类
+
+| 包管理系统           | 发行版 (部分列表)                                            |
+| :------------------- | :----------------------------------------------------------- |
+| Debian Style (.deb)  | Debian, **Ubuntu**, Xandros, Linspire                        |
+| Red Hat Style (.rpm) | Fedora, CentOS, Red Hat Enterprise Linux, OpenSUSE, Mandriva, PCLinuxOS |
+
+下面的命令全是针对Ubuntu系统 (即Debian系统)的.
+
+(1) 在库里查找软件包
+
+apt-get update
+
+apt-cache search <search_string>
+
+```
+$ apt-get update
+$ apt-cache search emacs		# 查找emacs文件编辑器
+```
+
+(2) 安装库中的软件包
+
+apt-get update
+
+apt-get install <package_name>
+
+```
+$ apt-get update
+$ apt-get install <package_name>
+```
+
+(3)  安装软件部文件中的软件包
+
+如果软件包文件并不是从库源中下载的,可以使用
 
