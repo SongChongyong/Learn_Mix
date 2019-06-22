@@ -364,6 +364,14 @@ $ git pull origin master
 
 删除分支：git branch -d <name>
 
+```
+$ git branch
+* master
+$ git checkout -b terence_thinkpad
+Switched to a new branch 'terence_thinkpad'
+
+```
+
 
 
 ### 4.2 解决冲突
