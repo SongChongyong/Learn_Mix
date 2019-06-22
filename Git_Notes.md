@@ -367,8 +367,14 @@ $ git pull origin master
 ```
 $ git branch
 * master
+
 $ git checkout -b terence_thinkpad
 Switched to a new branch 'terence_thinkpad'
+
+$ git branch
+  master
+* terence_thinkpad
+
 
 ```
 
