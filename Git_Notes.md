@@ -385,7 +385,7 @@ $ git branch
 * master
   terence_thinkpad
 # ====================(5)现在可以删除不需要的分支了
-
+branch -d terence_thinkpad
 
 ```
 
