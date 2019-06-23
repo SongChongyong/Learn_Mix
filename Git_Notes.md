@@ -1,6 +1,10 @@
 # Git Notes
 
+<<<<<<< HEAD
 此文件仅仅是学习廖雪峰Git教程的笔记,详细教程参考廖雪峰官网教程.
+=======
+这是跟着学习廖雪峰官网的笔记, 仅仅是个人学习的记录, 方便后续查阅, 同时加深学习时候的理解记忆,详细的Git教程见[廖雪峰Git教程](https://www.liaoxuefeng.com/wiki/896043488029600)
+>>>>>>> 596b8326c95f51df1e6eb45961b9456b888c5ac3
 
 [TOC]
 
@@ -408,24 +412,50 @@ $ git branch -b terence_thinkpad
 
 
 ### 4.2 解决冲突
-当Git无法自动合并分支时，解决冲突就是把Git合并失败的文件手动编辑为我们希望的内容，再提交。
+当Git无法自动合并分支时，解决冲突就是**把Git合并失败的文件手动编辑为我们希望的内容, 再提交**.
 
-用git log --graph命令可以看到分支合并图。
+用**git log --graph命令可以看到分支合并图**。
+
+
 
 ### 4.3 分支管理策略
-Git分支十分强大，在团队开发中应该充分应用。
+分支合并git merge有两种模式: 
 
-合并分支时，加上--no-ff参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并。
+- (1) 直接使用`git merge <branch_name>`合并分支, Git会使用`Fast forward`模式, 但这种模式下，删除分支后，会丢掉分支信息.
+
+- (2) 使用`git merge --no-ff -m "描述信息" <branch_name>`禁用`Fast forward`模式, 换成普通模式:  
+	其中"--no-ff"表示强制禁用`Fast forward`模式;
+	
+	合并要创建一个新的commit，Git就会在merge时生成一个新的commit(以便从分支历史上查看分支信息), 所以加上`-m`参数，把commit描述写进去. 
+
+```python
+$ git merge --no-ff -m"Test merge --no-ff" terence_thinkpad 
+Auto-merging Git_Notes.md
+Merge made by the 'recursive' strategy.
+ Git_Notes.md | 23 +++++++++++++++++++----
+ 1 file changed, 19 insertions(+), 4 deletions
+
+$ git log --graph --pretty=oneline --abbrev-commit
+*   49a70c0 Test merge --no-ff
+|\  
+| * 3165406 Add git emerge --no-ff
+```
+
+
 
 ### 4.4 Bug分支
 修复bug时，我们会通过创建新的bug分支进行修复，然后合并，最后删除；
 
 当手头工作没有完成时，先把工作现场git stash一下，然后去修复bug，修复后，再git stash pop，回到工作现场。
 
+
+
 ### 4.5 Feature分支
 开发一个新feature，最好新建一个分支；
 
 如果要丢弃一个没有被合并过的分支，可以通过git branch -D <name>强行删除。
+
+
 
 ### 4.6 多人协作
 因此，多人协作的工作模式通常是这样：
