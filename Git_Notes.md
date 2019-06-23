@@ -1,10 +1,6 @@
 # Git Notes
 
-<<<<<<< HEAD
-此文件仅仅是学习廖雪峰Git教程的笔记,详细教程参考廖雪峰官网教程.
-=======
 这是跟着学习廖雪峰官网的笔记, 仅仅是个人学习的记录, 方便后续查阅, 同时加深学习时候的理解记忆,详细的Git教程见[廖雪峰Git教程](https://www.liaoxuefeng.com/wiki/896043488029600)
->>>>>>> 596b8326c95f51df1e6eb45961b9456b888c5ac3
 
 [TOC]
 
@@ -159,7 +155,7 @@ index 46d49bf..9247db6 100644
 
 ### 2.4 版本回退
 
-用**git log**命令查看历史记录：
+用git log命令查看历史记录：
 
 ```
 $ git log
@@ -220,15 +216,15 @@ HEAD is now at e475afc add distributed
 #也可以用git reset --hard+版本号（版本号只需要前面几位就行）
 ```
 
-**用git reflog查看命令历史**(同时可以顺便查看到版本号,方便版本回退)
+**用git reflog查看命令历史**
 
 ### 2.5 工作区和暂存区
 
-**工作区（Working Directory）: 就是你在电脑里能看到的目录**
+工作区（Working Directory）: 就是你在电脑里能看到的目录
 
-**版本库（Repository）**: 工作区有一个**隐藏目录.git**，这个不算工作区，而是Git的版本库。
+版本库（Repository）: 工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库。
 
-Git的版本库里存了很多东西，其中最重要的就是称为**stage（或者叫index）的暂存区**，还有Git为我们自动创建的第一个分支master，以及指向master的一个指针叫HEAD。
+Git的版本库里存了很多东西，其中最重要的就是称为stage（或者叫index）的暂存区，还有Git为我们自动创建的第一个分支master，以及指向master的一个指针叫HEAD。
 
  
 
@@ -273,7 +269,7 @@ $ git checkout -- readme.txt
 
 ### 2.7 删除文件
 
-`git rm <file>`  从版本库中删除文件, 删除后需要commit
+git rm <file>  从版本库中删除文件, 删除后需要commit
 
 ```
 $ rm test.txt			
@@ -333,7 +329,7 @@ $ git push -u origin master
 
 ```
 
-### 3.3 从远程仓库获取
+### 3.2 从远程仓库获取
 
 **git clone ----获取远程仓库**
 
@@ -350,15 +346,6 @@ $ git pull origin master
 
 # 假设github远程库的master分支文件有修改,使用git pull origin master可以将本地仓库中的master分支更新到github库master分支状态
 
-```
-
-### 3.4 将本地分支跟踪服务器分支
-
-```
-# git branch --set-upstream-to=origin/远程分支名 本地分支名
-# 跟踪后,需要将本地库push 到远程库,只需要 git push 就行
-
-$ git branch --set-upstream-to=origin/master master
 ```
 
 
