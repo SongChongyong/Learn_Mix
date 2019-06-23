@@ -375,6 +375,36 @@ $ git branch --set-upstream-to=origin/master master
 
 删除分支：git branch -d <name>
 
+```
+$ git branch
+* master
+
+# ===================(1)创建切换分支到terence_thinkpad分支
+$ git checkout -b terence_thinkpad
+Switched to a new branch 'terence_thinkpad'
+
+$ git branch
+  master
+* terence_thinkpad
+
+# ====================(2)然后在terence_thinkpad分支做各种操作,完成后需要add+commit
+# ====================(3)然后要切换回"master"分支
+# ====================(4)切换回master分支后,在把terence_thinkpad分支合并到master分支
+$ git merge terence_thinkpad 
+
+$ git branch
+* master
+  terence_thinkpad
+# ====================(5)现在可以删除不需要的分支了
+<<<<<<< HEAD
+branch -d terence_thinkpad
+=======
+$ git branch -b terence_thinkpad
+
+>>>>>>> terence_thinkpad
+
+```
+
 
 
 ### 4.2 解决冲突
