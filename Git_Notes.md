@@ -415,6 +415,19 @@ $ git branch -b terence_thinkpad
 	
 	合并要创建一个新的commit，Git就会在merge时生成一个新的commit(以便从分支历史上查看分支信息), 所以加上`-m`参数，把commit描述写进去. 
 
+```python
+$ git merge --no-ff -m"Test merge --no-ff" terence_thinkpad 
+Auto-merging Git_Notes.md
+Merge made by the 'recursive' strategy.
+ Git_Notes.md | 23 +++++++++++++++++++----
+ 1 file changed, 19 insertions(+), 4 deletions
+
+$ git log --graph --pretty=oneline --abbrev-commit
+*   49a70c0 Test merge --no-ff
+|\  
+| * 3165406 Add git emerge --no-ff
+```
+
 
 
 ### 4.4 Bug分支
