@@ -191,7 +191,7 @@ T(n) = O(n * n * (1+1)) = O(n * n) = O(n^2)
 
 **常见时间复杂度之间的关系**
 
-![01算法效率关系](C:/Users/yong/Desktop/Data_Structures&Algorithms_in_Python/01_%E5%BC%95%E5%85%A5%E6%A6%82%E5%BF%B5/pictures/01%E7%AE%97%E6%B3%95%E6%95%88%E7%8E%87%E5%85%B3%E7%B3%BB.bmp)
+![01算法效率关系](./images/01算法效率关系.bmp)
 
 所消耗的时间从小到大
 $$
@@ -265,11 +265,11 @@ print("pop_end ",pop_end.timeit(number=1000), "seconds")
 
 **list内置操作的时间复杂度**
 
-![list内置操作的时间复杂度](./pictures/list操作.png)
+![list内置操作的时间复杂度](./images/list操作.png)
 
 **dict内置操作的时间复杂度**
 
-![dict内置操作的时间复杂度](./pictures/dict操作.png)
+![dict内置操作的时间复杂度](./images/dict操作.png)
 
 
 
