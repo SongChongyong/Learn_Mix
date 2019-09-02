@@ -2,7 +2,7 @@
 
 此项目是学习<Linux命令行大全>练习笔记. 仅仅是个人学习记录.
 
-![Linux命令行大全](./pictures/01_Linux命令行大全.jpg)
+![Linux命令行大全](./images/01_Linux命令行大全.jpg)
 
 
 ## 第二章 导航--文件系统
