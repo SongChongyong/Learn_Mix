@@ -4,11 +4,15 @@
 
 1. **Git和Github**: [Git_Notes.md](./Git_Notes.md)
 
+   常用Git命令:
+
+   ![Git](./images/git.png)
+
 2. **Linux命令行**: [Linux_command_line.md](./Linux_command_line.md)
 
 3. **Python数据结构与算法**:[Data_Structures&Algorithms_in_Python](./Data_Structures&Algorithms_in_Python)
 
-4.  Markdown
+4. Markdown
 
    Markdown中公式编辑教程: 参考博客[markdown中公式编辑教程](https://www.jianshu.com/p/25f0139637b7)
 
