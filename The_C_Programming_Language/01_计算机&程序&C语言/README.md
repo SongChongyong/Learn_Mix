@@ -30,3 +30,7 @@ main()
 - ` # include<stdio.h> ` ：表示本程序中包含标准输入/输出库的信息
 - `printf("Hello World!\n")`：将作为参数"Hello World!\n"调用`printf`函数，`printf`是一个用于打印输出的库函数，"\n"是**换行符**（表示在输出结果后面换一行）
 
+----
+## 参考资料
+
+
