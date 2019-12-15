@@ -27,7 +27,7 @@
 
 1. [翁恺《C语言程序设计》中国大学MOOC](<http://www.icourse163.org/course/ZJU-9001>) (学习的是2014年第一次开课内容)
 2. Brian W.Kernighan等著《C程序设计语言》
-3. [edX-C Programming: Pointer and memory management](./https://www.edx.org/course/c-programming-pointers-and-memory-management)
+3. [edX-C Programming: Pointer and memory management](https://www.edx.org/course/c-programming-pointers-and-memory-management)
 4. [edX-C Programming: Advanced Data Types](https://www.edx.org/course/c-programming-advanced-data-types)
 5. [B站视频 edX-C Programming: Advanced Data Type](https://www.bilibili.com/video/av78845925)
 
