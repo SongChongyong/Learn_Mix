@@ -2,18 +2,18 @@
 
 int main()
 {
-    // ç”³æ˜dataç»“æ„
+	// ÉêÃ÷data½á¹¹ 
 	struct date {
 		int month;
 		int day;
 		int year;
 	};
 	
-	struct date today;  // ç»“æ„å˜é‡
+	struct date today;   
 	today.month = 12;
 	today.day = 8;        
-	// è¿™äº›å†™"08"ä¼šerror:invalid digit "8" in octal constant è¡¨ç¤ºå¦‚æœä»¥0å¼€å§‹å°±æ˜¯8è¿›åˆ¶å¸¸é‡ï¼Œ08æ— æ•ˆäº† 
-	// æ‰€ä»¥è¦æ‰“å° XXXX-0X-0Xç”¨è¿™ä¸ªç¨‹åºå®ç°ä¸äº† 
+	// ÕâĞ©Ğ´"08"»áerror:invalid digit "8" in octal constant ±íÊ¾Èç¹ûÒÔ0¿ªÊ¼¾ÍÊÇ8½øÖÆ³£Á¿£¬08ÎŞĞ§ÁË 
+	// ËùÒÔÒª´òÓ¡ XXXX-0X-0XÓÃÕâ¸ö³ÌĞòÊµÏÖ²»ÁË 
 	today.year = 2019;
 	printf("Today's date is %i-%i-%i.\n", today.year, today.month, today.day);
 	// Today's date is 2019-12-8. 

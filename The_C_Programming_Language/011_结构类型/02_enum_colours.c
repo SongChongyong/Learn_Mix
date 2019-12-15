@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include <stdio.h>
 
 enum COLOURS {RED, YELLOW, GREEN}; 
  
@@ -24,4 +24,4 @@ int main(int argc,char const *argv[])
 Please input your favorite colour code:(red 0, yellow 1, green 2) 1
 Your favorite colour is: yellow
 */
-
+  

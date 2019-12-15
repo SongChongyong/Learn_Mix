@@ -5,6 +5,7 @@ enum colour {red, yellow, green};
 void fun(enum colour c); 
 int main(void)
 {
+	//! showMemory(start=65520)
 	enum colour t = red;
 	scanf("%d", &t);
 	fun(t);

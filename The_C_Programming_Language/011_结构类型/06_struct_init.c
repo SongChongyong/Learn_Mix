@@ -18,5 +18,9 @@ int main()
 	// Today's date is 2014-7-31.
 	// Today's date is 2014-7-0. 
 	
+	struct date *pDate = &today;
+	printf("Adress of struct today is %p.\n", pDate);
+	// Adress of struct today is 00000000009FFE30. 
+
 	return 0;
 }

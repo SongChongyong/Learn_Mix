@@ -1,16 +1,15 @@
-#include<stdio.h>
-
-// Ê≠§‰ª£Á†Åerror 
-const int red = 0;
-const int yellow = 1;
-const int green = 2;
+#include <stdio.h>
+// ¥À¥˙¬Îerror 
+const int red = 1;
+const int yellow = 2;
+const int green = 3;
  
 int main(int argc,char const *argv[]){
 	int colour = -1;
     char *colourName = NULL;
  
     printf("Please input your favorite colour code:\n");
-    printf("(red 0, yellow 1, green 2)");
+    printf("(red 1, yellow 2, green 3)");
     scanf("%d", &colour);
     switch(colour){
         case red: colourName = "red"; break;
@@ -21,3 +20,4 @@ int main(int argc,char const *argv[]){
     printf("Your favorite colour is: %s\n",colourName);
     return 0;
 }
+  
