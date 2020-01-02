@@ -599,7 +599,7 @@ void g(void)
     
     struct Node{
         int value;
-        char *namel
+        char *name;
     };
     
     #endif            
