@@ -2,7 +2,7 @@
 
 # C++语言程序设计
 
-这是学习学堂在线郑莉老师的"C++语言程序设计"课程的学习笔记，才开始接粗计算机，笔记仅仅是个人学习的记录。
+这是学习学堂在线郑莉老师的"C++语言程序设计"课程的学习笔记，才开始接触计算机，笔记仅仅是个人学习的记录。
 
 - **01 绪论**
 
@@ -165,73 +165,77 @@ inline 类型说明符 函数名(含类型说明的形参表)
 注意：
 
 - 内联函数体内不能有循环语句和switch语句
+
 - 内联函数的定义必须出现在内联函数第一次调用之前
+
 - 对内联函数不能进行异常接口声明
+
 - 编译器可能自动定义简单函数为inline函数，同时也可能将定义的inline函数判断为不是inline函数，作普通函数处理
 
-```c++
-//3_14.cpp
-#include <iostream>
-using namespace std;
+    
 
-const double PI = 3.14159265358979;
+    ```c++
+    #include<iostream>
+    using namespace std;
+    
+    const double PI = 3.14159265358979;
+    
+    //内联函数，根据圆的半径计算其面积
+    inline double calArea(double radius){
+        return PI*radius*radius;
+    }
+    
+    int main()
+    {
+        double r=3.0;    // r是圆的半径
+        // 调用内联函数求圆的面积，编译时此处被替换为calArea()函数体语句
+        double area = calArea(r);
+        cout << area << endl;    
+        return 0;
+    }
+    /*
+    28.2743
+    */
+    ```
 
-// 内联函数，根据圆的半径计算其面积
-inline double calArea(double radius) {
-	return PI * radius * radius;
-}
-
-int main() {
-	double r = 3.0;	          // r是圆的半径
-	// 调用内联函数求圆的面积，编译时此处被替换为calArea()函数体语句
-	double area	= calArea(r);
-	cout << area << endl;
-	return 0;
-}
-/*
-28.2743
-*/
-```
-
-(代码见: [3_14.cpp](./3_14.cpp))
+    (代码见: [3_14.cpp](./3_14.cpp))
 
 
 
 ## 3.4 函数重载
 
-**函数重载：两个以上的函数，具有相同的函数名，但是形参的个数或者类型不同，编译器根据实参和形参的类型及个数的最佳匹配，自动确定调用哪一个函数。**
+**函数重载：两个以上的函数，具有相同的函数名，但是形参的个数或者类型不同，编译器根据实参和形参的类型及个数的最佳匹配，自动确定调用哪一个函数。
 
 ```c++
-#include <iostream>
+#include<iostream>
 using namespace std;
 
 /* 函数重载实例 */
 
-
 /* 求两个整数的平方和 */
-int sumOfSquare(int a, int b) {
-	return a * a + b * b;
+int sumOfSquare(int a, int b){
+    return a*a + b*b;
 }
 
 /* 求两个实数的平方和 */
-double sumOfSquare(double a, double b) {
-	return a * a + b * b;
+double sumOfSquare(double a, double b){
+    return a*a + b*b;
 }
 
-int main() {
-	int m, n;
-	cout << "Enter two integer: ";
-	cin >> m >> n;
-	// 读入的m,n类型是int，编译器自动定位sumOfSquare()函数为求两个整数的平方和的函数
-	cout << "Their sum of square: " << sumOfSquare(m, n) << endl;
+int main(){
+    int m, n;
+    cout << "Enter two integer: ";
+    cin >> m >> n;
+    // 读入的m,n类型是int，编译器自动定位sumOfSquare()函数为求两个整数的平方和的函数
+    cout << "Their sum of square: " << sumOfSquare(m, n) <<endl;
 
-	double x, y;
-	cout << "Enter two real number: ";
-	cin >> x >> y;
-	// 读入的m,n类型是double，编译器自动定位sumOfSquare()函数为求两个实数的平方和的函数
-	cout << "Their sum of square: " << sumOfSquare(x, y) << endl;
+    double x, y;
+    cout << "Enter two real number: ";
+    cin >> x >> y;
+    // 读入的m,n类型是double，编译器自动定位sumOfSquare()函数为求两个实数的平方和的函数
+   cout << "Their sum of square: " << sumOfSquare(x, y) << endl;
 
-	return 0;
+    return 0; 
 }
 
 /*
@@ -245,6 +249,7 @@ Their sum of square: 25
 Enter two real number: 3.0 4.1
 Their sum of square: 25.81
 */
+
 ```
 
 (代码见: [3_16.cpp](./3_16.cpp))
