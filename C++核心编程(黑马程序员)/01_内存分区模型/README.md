@@ -42,48 +42,51 @@ C++程序在执行时，将内存大方向划分为**4个区域**
 **示例：**
 
 ```c++
-//全局变量
+#include<iostream>
+using namespace std;
+
+// 全局变量
 int g_a = 10;
 int g_b = 10;
 
-//全局常量
+// 全局常量
 const int c_g_a = 10;
 const int c_g_b = 10;
 
-int main() {
+int main()
+{
+    // 局部变量
+    int a = 10;
+    int b = 10;
 
-	//局部变量
-	int a = 10;
-	int b = 10;
+    // 打印地址
+    cout << "局部变量a地址为： " << (int)&a << endl;
+    cout << "局部变量b地址为： " << (int)&b << endl;
 
-	//打印地址
-	cout << "局部变量a地址为： " << (int)&a << endl;
-	cout << "局部变量b地址为： " << (int)&b << endl;
+    cout << "全局变量g_a地址为： " << (int)&g_a << endl;
+    cout << "全局变量g_b地址为： " << (int)&g_b << endl;
 
-	cout << "全局变量g_a地址为： " <<  (int)&g_a << endl;
-	cout << "全局变量g_b地址为： " <<  (int)&g_b << endl;
+    // 静态变量
+    static int s_a = 10;
+    static int s_b = 10;
 
-	//静态变量
-	static int s_a = 10;
-	static int s_b = 10;
+    cout << "静态变量s_a地址为： " << (int)&s_a << endl;
+    cout << "静态变量s_b地址为： " << (int)&s_b << endl;
 
-	cout << "静态变量s_a地址为： " << (int)&s_a << endl;
-	cout << "静态变量s_b地址为： " << (int)&s_b << endl;
+    cout << "字符串常量地址为： " << (int)&"hello world" << endl; 
+    cout << "字符串常量地址为： " << (int)&"hello world1" << endl;
 
-	cout << "字符串常量地址为： " << (int)&"hello world" << endl;
-	cout << "字符串常量地址为： " << (int)&"hello world1" << endl;
+    cout << "全局常量c_g_a地址为： " << (int)&c_g_a << endl; 
+    cout << "全局常量c_g_b地址为： " << (int)&c_g_b << endl;
 
-	cout << "全局常量c_g_a地址为： " << (int)&c_g_a << endl;
-	cout << "全局常量c_g_b地址为： " << (int)&c_g_b << endl;
+    const int c_l_a = 10;
+    const int c_l_b = 10;
 
-	const int c_l_a = 10;
-	const int c_l_b = 10;
-	cout << "局部常量c_l_a地址为： " << (int)&c_l_a << endl;
-	cout << "局部常量c_l_b地址为： " << (int)&c_l_b << endl;
+    cout << "局部常量c_l_a地址为： " << (int)&c_l_a << endl;
+    cout << "局部常量c_l_b地址为： " << (int)&c_l_b << endl;
 
-	system("pause");
+    return 0;
 
-	return 0;
 }
 /*
 在Linux中，直接打印16位地址结果：
@@ -137,23 +140,22 @@ using namespace std;
 // 栈区的数据由编译器管理开辟和释放
 // ！！不要返回局部变量的地址
 
-int * func(int b)     // 形参数据也会放在栈区，如这里的b
+int *func(int b)   // 形参数据也会放在栈区，如这里的b
 {
-	b = 100;
-    int a = 10;  // 局部变量,存放在栈区，栈区的数据在函数执行后自动释放
-	return &a;   // 返回局部变量的地址
+    b = 100;
+    int a = 10;    // 局部变量,存放在栈区，栈区的数据在函数执行后自动释放
+    return &a;     // 返回局部变量的地址
 }
 
-int main() {
+int main()
+{
+    int *p = func(1);
 
-	int *p = func(1);
+    cout << *p << endl;   // 第一次有时可以打印出"10"的结果，因为编译器做了保留
+    cout << *p << endl;   // 第二次数据不再保留，打印出无效结果
 
-	cout << *p << endl;   // 第一次有时可以打印出"10"的结果，因为编译器做了保留
-	cout << *p << endl;   // 第二次数据不再保留，打印出无效结果
 
-	// system("pause");
-
-	return 0;
+    return 0;
 }
 
 /*
@@ -164,8 +166,8 @@ int main() {
 执行文件：
 $ ./02_栈区 
 Segmentation fault (core dumped)
-
 */
+
 ```
 
 (代码见: [02_栈区.cpp](./02_栈区.cpp))
@@ -183,26 +185,31 @@ Segmentation fault (core dumped)
 **示例：**
 
 ```c++
-int* func()
+#include<iostream>
+using namespace std;
+
+int *func()
 {
-	int* a = new int(10);
-	return a;
+    // 利用new，可以将数据开辟到堆区
+    // 指针本质也是局部变流，放在栈区，但是指针保存的数据放在堆区
+    int *a = new int(10);
+    return a;
 }
 
-int main() {
+int main()
+{
+    // 在堆区开辟数据
+    int *p = func();
+    cout << *p << endl;    // 10
+    cout << *p << endl;    // 10
 
-	int *p = func();
-
-	cout << *p << endl;
-	cout << *p << endl;
-    
-	system("pause");
-
-	return 0;
+    return 0;
 }
+
+
 ```
 
-(代码见: [03_堆区.cpp])(./03_堆区.cpp)
+(代码见: [03_堆区.cpp](./03_堆区)）
 
 **总结：**
 
@@ -218,9 +225,9 @@ int main() {
 
 
 
-​	C++中利用==new==操作符在堆区开辟数据
+​	C++中利用`new`操作符在堆区开辟数据
 
-​	堆区开辟的数据，由程序员手动开辟，手动释放，释放利用操作符 ==delete==
+​	堆区开辟的数据，由程序员手动开辟，手动释放，释放利用操作符`delete`
 
 ​	语法：` new 数据类型`
 
@@ -231,60 +238,88 @@ int main() {
 **示例1： 基本语法**
 
 ```c++
-int* func()
+#include<iostream>
+using namespace std;
+
+int *func()
 {
-	int* a = new int(10);
-	return a;
+    // 利用new，可以将数据开辟到堆区
+    int *a = new int(10);
+    return a;
 }
 
-int main() {
+int main()
+{
+    // 在堆区开辟数据
+    int *p = func();
+    cout << *p << endl;    // 10
+    cout << *p << endl;    // 10
+    // 堆区的数据 由程序员管理开辟，也由程序员管理释放
+    // 如果想释放堆区的数据，利用关键字 delete
 
-	int *p = func();
+    delete p;
 
-	cout << *p << endl;
-	cout << *p << endl;
+    cout << *p << endl; // 报错，释放的空间不可访问 (Linux输出0)
 
-	//利用delete释放堆区数据
-	delete p;
-
-	//cout << *p << endl; //报错，释放的空间不可访问
-
-	system("pause");
-
-	return 0;
+    return 0;
 }
 ```
+
+(代码见: [04_new基本语法.cpp](./04_new基本语法.cpp))
 
 
 
 **示例2：开辟数组**
 
 ```c++
-//堆区开辟数组
-int main() {
+#include<iostream>
+using namespace std;
 
-	int* arr = new int[10];
+// 堆区开辟数组
+void test()
+{
+    // 创建有10个整型数据的数组，在堆区
+    int *arr = new int[10];
 
-	for (int i = 0; i < 10; i++)
-	{
-		arr[i] = i + 100;
-	}
+    // 给数组赋值 100-109
+    for (int i = 0; i < 10; i++)
+    {
+        arr[i] = i+100;
+    }
+    
+    // 遍历打印数组元素
+    for (int i = 0; i < 10; i++)
+    {
+        cout << arr[i] << endl;
+    }
 
-	for (int i = 0; i < 10; i++)
-	{
-		cout << arr[i] << endl;
-	}
-	//释放数组 delete 后加 []
-	delete[] arr;
+    // 释放堆区数组
+    // 释放数组时，需要加入[]
+    delete[] arr;
 
-	system("pause");
-
-	return 0;
 }
 
+int main()
+{
+    test();
+    return 0;
+}
+
+/*
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+*/
 ```
 
-
+(代码见: [05_new开辟数组 .cpp](./05_new开辟数组 .cpp))
 
 
 
