@@ -11,7 +11,7 @@
 ```C++
 int func(int a, int b = 10, int c = 10) {
 
-	return a + b + c;
+    return a + b + c;
 
 }
 
@@ -20,18 +20,18 @@ int func(int a, int b = 10, int c = 10) {
 int func2(int a = 10, int b = 10); 
 int func2(int a, int b) {
 
-	return a + b;
+    return a + b;
 
 }
 
 int main() {
 
-	cout << "ret = " << func(20, 20) << endl;
-	cout << "ret = " << func(100) << endl;
+    cout << "ret = " << func(20, 20) << endl;
+    cout << "ret = " << func(100) << endl;
 
-	system("pause");
+    system("pause");
 
-	return 0;
+    return 0;
 
 }
 
@@ -50,16 +50,16 @@ C++中函数的形参列表里可以有占位参数，用来做占位，调用�
 ```C++
 //函数占位参数 ，占位参数也可以有默认参数
 void func(int a, int) {
-	cout << "this is func" << endl;
+    cout << "this is func" << endl;
 }
 
 int main() {
 
-	func(10,10); //占位参数必须填补
+    func(10,10); //占位参数必须填补
 
-	system("pause");
+    system("pause");
 
-	return 0;
+    return 0;
 }
 ```
 
@@ -84,31 +84,31 @@ int main() {
 void func()
 {
 
-	cout << "func 的调用！" << endl;
+    cout << "func 的调用！" << endl;
 
 }
 void func(int a)
 {
 
-	cout << "func (int a) 的调用！" << endl;
+    cout << "func (int a) 的调用！" << endl;
 
 }
 void func(double a)
 {
 
-	cout << "func (double a)的调用！" << endl;
+    cout << "func (double a)的调用！" << endl;
 
 }
 void func(int a , double b)
 {
 
-	cout << "func (int a ,double b) 的调用！" << endl;
+    cout << "func (int a ,double b) 的调用！" << endl;
 
 }
 void func(double a , int b)
 {
 
-	cout << "func (double a ,int b)的调用！" << endl;
+    cout << "func (double a ,int b)的调用！" << endl;
 
 }
 
@@ -120,16 +120,16 @@ void func(double a , int b)
 
 int main() {
 
-	func(); 
-	func(10); 
-	func(3.14); 
-	func(10, 3.14); 
-	func(3.14 , 10); 
-	
+    func(); 
+    func(10); 
+    func(3.14); 
+    func(10, 3.14); 
+    func(3.14 , 10); 
+    
 
-	system("pause");
+    system("pause");
 
-	return 0;
+    return 0;
 
 }
 
@@ -148,37 +148,37 @@ int main() {
 
 void func(int &a)
 {
-	cout << "func (int &a) 调用 " << endl;
+    cout << "func (int &a) 调用 " << endl;
 }
 
 void func(const int &a)
 {
-	cout << "func (const int &a) 调用 " << endl;
+    cout << "func (const int &a) 调用 " << endl;
 }
 
 //2、函数重载碰到函数默认参数
 
 void func2(int a, int b = 10)
 {
-	cout << "func2(int a, int b = 10) 调用" << endl;
+    cout << "func2(int a, int b = 10) 调用" << endl;
 }
 
 void func2(int a)
 {
-	cout << "func2(int a) 调用" << endl;
+    cout << "func2(int a) 调用" << endl;
 }
 
 int main() {
-	
-	int a = 10;
-	func(a); //调用无const
-	func(10);//调用有const
+    
+    int a = 10;
+    func(a); //调用无const
+    func(10);//调用有const
 
-	//func2(10); //碰到默认参数产生歧义，需要避免
+    //func2(10); //碰到默认参数产生歧义，需要避免
 
-	system("pause");
+    system("pause");
 
-	return 0;
+    return 0;
 }
 ```
 
