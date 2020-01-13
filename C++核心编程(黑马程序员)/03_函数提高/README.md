@@ -6,36 +6,44 @@
 
 语法： ` 返回值类型  函数名 （参数= 默认值）{}` 
 
+**如果某个位置参数有默认值，那么从这个位置往后，从左向右，必须都要有默认值。**
+
+
+
 **示例：**
 
 ```C++
+// 1. 如果某个位置参数有默认值，那么从这个位置往后，从左向右，必须都要有默认值
 int func(int a, int b = 10, int c = 10) {
-
     return a + b + c;
-
 }
 
-//1. 如果某个位置参数有默认值，那么从这个位置往后，从左向右，必须都要有默认值
-//2. 如果函数声明有默认值，函数实现的时候就不能有默认参数
-int func2(int a = 10, int b = 10); 
-int func2(int a, int b) {
-
-    return a + b;
-
-}
-
-int main() {
-
-    cout << "ret = " << func(20, 20) << endl;
-    cout << "ret = " << func(100) << endl;
-
-    system("pause");
+int main() 
+{
+    cout << "ret = " << func(20, 20) << endl;    // ret = 50
+    cout << "ret = " << func(100) << endl;       // ret = 120
 
     return 0;
-
 }
 
-``` 
+```
+
+
+
+**函数声明和函数定义时只能有一个有默认参数，如果函数声明有默认值，函数实现的时候就不能有默认参数。**
+
+```c++
+//2. 如果函数声明有默认值，函数实现的时候就不能有默认参数
+
+int func2(int a = 10, int b = 10); 
+int func2(int a, int b) {
+    return a + b;
+}
+```
+
+
+
+
 
 ### 3.2 函数占位参数
 
@@ -54,14 +62,13 @@ void func(int a, int) {
 }
 
 int main() {
-
     func(10,10); //占位参数必须填补
-
-    system("pause");
 
     return 0;
 }
 ```
+
+
 
 ### 3.3 函数重载
 
@@ -80,39 +87,41 @@ int main() {
 **示例：**
 
 ```C++
-//函数重载需要函数都在同一个作用域下
+#include<iostream>
+using namespace std;
+
+/* 函数重载的满足条件：
+    1. 需要函数都在同一个作用域下
+    2. 函数名称相同
+    3. 函数参数类型不同，或者参数个数不同，或者顺序不同
+*/
+
 void func()
 {
-
     cout << "func 的调用！" << endl;
-
 }
+
 void func(int a)
 {
-
     cout << "func (int a) 的调用！" << endl;
-
 }
+
 void func(double a)
 {
-
     cout << "func (double a)的调用！" << endl;
-
 }
+
 void func(int a , double b)
 {
-
     cout << "func (int a ,double b) 的调用！" << endl;
-
 }
+
 void func(double a , int b)
 {
-
     cout << "func (double a ,int b)的调用！" << endl;
-
 }
 
-//函数返回值不可以作为函数重载条件
+//函数返回值不可以作为函数重载条件, 如void fun()和int func()仅仅返回类型不同，不可作为函数重载
 //int func(double a, int b)
 //{
 //	cout << "func (double a , int b)的调用！" << endl; 
@@ -120,20 +129,19 @@ void func(double a , int b)
 
 int main() {
 
-    func(); 
-    func(10); 
-    func(3.14); 
-    func(10, 3.14); 
-    func(3.14 , 10); 
-    
-
-    system("pause");
+    func();              // func 的调用！
+    func(10);            // func (int a) 的调用！
+    func(3.14);          // func (double a)的调用！
+    func(10, 3.14);      // func (int a ,double b) 的调用！
+    func(3.14 , 10);     // func (double a ,int b)的调用！
 
     return 0;
-
 }
+```
 
-``` 
+(代码见: [02_函数重载.cpp](./02_函数重载.cpp))
+
+
 
 #### 3.3.2 函数重载注意事项
 
@@ -143,6 +151,9 @@ int main() {
 **示例：**
 
 ```C++
+#include<iostream>
+using namespace std;
+
 //函数重载注意事项
 //1、引用作为重载条件
 
@@ -171,14 +182,17 @@ void func2(int a)
 int main() {
     
     int a = 10;
-    func(a); //调用无const
-    func(10);//调用有const
+    func(a);       //调用无const
+    func(10);      //调用有const
 
-    //func2(10); //碰到默认参数产生歧义，需要避免
-
-    system("pause");
+    //func2(10);     //碰到默认参数产生歧义，需要避免
 
     return 0;
 }
+/*
+func (int &a) 调用 
+func (const int &a) 调用 
+*/
 ```
 
+(代码见: [03_函数重载 注意事项.cpp](./03_函数重载 注意事项.cpp))
