@@ -60,9 +60,9 @@ public:
 // 如果函数地址在编译阶段就能确定，那么静态联编
 // 如果函数地址在运行阶段才能确定，就是动态联编
 
-void DoSpeak(Animal & animal)  // 父类指针指向子类对象
+void DoSpeak(Animal & animal)  // 父类引用指向子类对象，父类对象animal
 {
-    animal.speak();
+    animal.speak();           // 父类对象animal指向子类对象speak()
 }
 
 // 多态满足条件： 
