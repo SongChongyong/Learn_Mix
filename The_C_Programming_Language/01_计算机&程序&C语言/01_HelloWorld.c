@@ -1,4 +1,4 @@
-#include<stdio.h>  // °üº¬±ê×¼¿â£¨ÊäÈë¿âºÍÊä³ö¿â£©µÄÐÅÏ¢ 
+#include<stdio.h>  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¼ï¿½â£¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½â£©ï¿½ï¿½ï¿½ï¿½Ï¢ 
 
 main()
 {
